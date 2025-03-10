@@ -1,5 +1,7 @@
 provider "aws" {
   region = "ap-south-1"
+access_key = var.access_key
+secret_key = var.secret_key
 }
 resource "aws_instance" "myec2" {
   ami                    = var.myami
@@ -7,8 +9,6 @@ resource "aws_instance" "myec2" {
   tags = {
     Name = "MyNewterra"
   }
-access_key = var.access_key
-secret_key = var.secret_key
 }
 variable "myami" {
 type= string
