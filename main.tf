@@ -4,8 +4,20 @@ provider "aws" {
 resource "aws_instance" "myec2" {
   ami                    = var.myami
   instance_type          = var.instype
-  key_name               = aws_key_pair.mykey.key_name
-  vpc_security_group_ids = [aws_security_group.mysg.id]
   tags = {
     Name = "MyNewterra"
   }
+access_key = var.access_key
+secret_key = var.secret_key
+}
+variable "myami" {
+type= string
+default = "ami-05c179eced2eb9b5b"
+}
+variable "instype" {
+type = string
+default = "t2.micro"
+}
+variable "access_key" {}
+variable "secret_key" {}
+
